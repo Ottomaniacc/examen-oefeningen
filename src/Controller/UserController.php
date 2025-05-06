@@ -56,6 +56,33 @@ class UserController extends AbstractController
     }
 
 
+    #[Route('/all-appointments', name: 'app_all_appointments')]
+    public function allAppointments(EntityManagerInterface $em): Response
+    {
+
+        $appointments = $em->getRepository(Appointment::class)->findAll();
+
+        return $this->render('user/allappointments.html.twig', [
+            'controller_name' => 'UserController',
+
+            'appointments' => $appointments,
+        ]);
+    }
+
+    #[Route('/appointment/delete/{id}', name: 'app_appointment_delete')]
+    public function deleteAppointment(EntityManagerInterface $em, Appointment $appointment): Response {
+
+
+        $em->remove($appointment);
+
+        $em->flush();
+
+
+
+        //We maken een redirect naar de route om het aangepaste boek te tonen
+        return $this->redirectToRoute('app_all_appointments');
+    }
+
 
 
 }

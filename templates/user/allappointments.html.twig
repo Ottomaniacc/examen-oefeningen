@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div><h1> alle afspraken</h1> </div>
+
+    <div class="container">
+
+        <div class="row">
+            {% for appointments in appointments %}
+            <div class="col-md-4">
+
+                    <div class="card" style="width: 18rem;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ appointments.subject }}</h5>
+                            <p class="card-text">{{ appointments.problems }}.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Datum: {{ appointments.date }}</li>
+                            <li class="list-group-item">Tijd: {{ appointments.time|date('H:i')}}</li>
+                            <li class="list-group-item">Besproken: {{ appointments.discussed }}</li>
+                            <li class="list-group-item text-success btn">aanpassen</li>
+                            <li class="list-group-item btn text-danger"><a class="text-decoration-none text-danger" href="{{ path('app_appointment_delete', {id: appointments.id}) }}">verwijder afspraak</a></li>
+                        </ul>
+                    </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+{% endblock %}

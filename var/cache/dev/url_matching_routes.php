@@ -19,6 +19,7 @@ return [
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_user', '_controller' => 'App\\Controller\\UserController::index'], null, null, null, false, false, null]],
         '/appointment' => [[['_route' => 'app_make_appointment', '_controller' => 'App\\Controller\\UserController::makeAppointment'], null, null, null, false, false, null]],
+        '/all-appointments' => [[['_route' => 'app_all_appointments', '_controller' => 'App\\Controller\\UserController::allAppointments'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -41,6 +42,7 @@ return [
                     .')'
                 .')'
                 .'|/user/([^/]++)(*:216)'
+                .'|/appointment/delete/([^/]++)(*:252)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -52,8 +54,9 @@ return [
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        216 => [
-            [['_route' => 'app_user_profile', '_controller' => 'App\\Controller\\UserController::userProfile'], ['id'], null, null, false, true, null],
+        216 => [[['_route' => 'app_user_profile', '_controller' => 'App\\Controller\\UserController::userProfile'], ['id'], null, null, false, true, null]],
+        252 => [
+            [['_route' => 'app_appointment_delete', '_controller' => 'App\\Controller\\UserController::deleteAppointment'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

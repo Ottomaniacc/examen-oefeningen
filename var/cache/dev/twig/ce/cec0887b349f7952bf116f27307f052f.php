@@ -70,10 +70,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
     ";
         // line 18
         $this->displayBlock('nav', $context, $blocks);
-        // line 56
+        // line 61
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 57
+        // line 62
         echo "    </body>
 </html>
 ";
@@ -230,6 +230,18 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                         ";
         }
         // line 48
+        echo "                        ";
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SPECIALIST")) {
+            // line 49
+            echo "                            <li class=\"nav-item\">
+                                <a class=\"nav-link\" href=\"";
+            // line 50
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_all_appointments");
+            echo "\">afspraken</a>
+                            </li>
+                        ";
+        }
+        // line 53
         echo "
 
                     </ul>
@@ -246,7 +258,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 56
+    // line 61
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -277,7 +289,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  250 => 56,  233 => 48,  227 => 45,  221 => 42,  218 => 41,  212 => 38,  204 => 35,  201 => 34,  199 => 33,  183 => 19,  173 => 18,  154 => 13,  144 => 14,  142 => 13,  139 => 12,  129 => 11,  118 => 8,  108 => 7,  89 => 5,  77 => 57,  74 => 56,  72 => 18,  67 => 15,  65 => 11,  62 => 10,  60 => 7,  55 => 5,  49 => 1,);
+        return array (  262 => 61,  245 => 53,  239 => 50,  236 => 49,  233 => 48,  227 => 45,  221 => 42,  218 => 41,  212 => 38,  204 => 35,  201 => 34,  199 => 33,  183 => 19,  173 => 18,  154 => 13,  144 => 14,  142 => 13,  139 => 12,  129 => 11,  118 => 8,  108 => 7,  89 => 5,  77 => 62,  74 => 61,  72 => 18,  67 => 15,  65 => 11,  62 => 10,  60 => 7,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -328,6 +340,11 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" href=\"{{ path('app_login') }}\">log in lil bro</a>
                         </li>
+                        {% endif %}
+                        {% if is_granted(\"ROLE_SPECIALIST\") %}
+                            <li class=\"nav-item\">
+                                <a class=\"nav-link\" href=\"{{ path('app_all_appointments') }}\">afspraken</a>
+                            </li>
                         {% endif %}
 
 
