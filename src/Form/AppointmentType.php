@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use http\Env\Request;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -26,6 +27,7 @@ class AppointmentType extends AbstractType
                 'class' => User::class,
 'choice_label' => 'firstname',
             ])
+            ->add('makeAppointment', SubmitType::class)
         ;
     }
 
@@ -36,22 +38,5 @@ class AppointmentType extends AbstractType
         ]);
     }
 
-    public function createAppointment(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(AppointmentType::class);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $appointment = $form->getData();
-            $entityManager->persist($appointment);
-            $entityManager->flush();
 
-//            $this->addFlash('success', 'Het boek is toegevoegd');
-
-            return $this->redirectToRoute('app_user');
-        }
-
-        return $this->render('book/appointment.html.twig', [
-            'form' => $form
-        ]);
-    }
 }

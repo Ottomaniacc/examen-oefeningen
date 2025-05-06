@@ -121,7 +121,7 @@ class __TwigTemplate_34fe227756cd1afdcbcead5964fa963e extends Template
 
 
 
-                <button type=\"submit\" class=\"btn btn-primary\">make appointment</button>
+
                 ";
         // line 22
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 22, $this->source); })()), 'form_end');
@@ -185,7 +185,7 @@ class __TwigTemplate_34fe227756cd1afdcbcead5964fa963e extends Template
 
 
 
-                <button type=\"submit\" class=\"btn btn-primary\">make appointment</button>
+
                 {{ form_end(form) }}
             </div>
         </div>
