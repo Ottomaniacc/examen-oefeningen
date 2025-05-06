@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Form\AppointmentType;
 use Doctrine\ORM\EntityManagerInterface;
 use http\Client\Curl\User;
+use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,4 +31,20 @@ class UserController extends AbstractController
             'user' => $user,
         ]);
     }
+
+    #[Route('/appointment', name: 'app_make_appointment')]
+    public function makeAppointment(EntityManagerInterface $em): Response
+    {
+        $form = $this->createForm(AppointmentType::class);
+
+
+        return $this->render('user/appointment.html.twig', [
+            'controller_name' => 'UserController',
+            'form'=>$form
+        ]);
+    }
+
+
+
+
 }

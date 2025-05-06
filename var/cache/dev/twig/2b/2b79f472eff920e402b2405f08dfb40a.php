@@ -116,7 +116,9 @@ class __TwigTemplate_aecc1f698786b91fa1c0e7a7b54e7e2d extends Template
         // line 24
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SPECIALIST")) {
             // line 25
-            echo "                    maak een afspraak lil bro
+            echo "                    <btn class=\"btn btn-primary\" ><a class=\"text-white text-decoration-none\" href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_make_appointment");
+            echo "\"> maak een afspraak lil bro </a></btn>
                 ";
         }
         // line 27
@@ -153,7 +155,7 @@ class __TwigTemplate_aecc1f698786b91fa1c0e7a7b54e7e2d extends Template
      */
     public function getDebugInfo()
     {
-        return array (  123 => 27,  119 => 25,  117 => 24,  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  125 => 27,  119 => 25,  117 => 24,  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -182,7 +184,7 @@ class __TwigTemplate_aecc1f698786b91fa1c0e7a7b54e7e2d extends Template
         <div class=\"row\">
             <div class=\"col-md-6\">
                 {% if is_granted(\"ROLE_SPECIALIST\") %}
-                    maak een afspraak lil bro
+                    <btn class=\"btn btn-primary\" ><a class=\"text-white text-decoration-none\" href=\"{{path('app_make_appointment')}}\"> maak een afspraak lil bro </a></btn>
                 {% endif %}
             </div>
         </div>

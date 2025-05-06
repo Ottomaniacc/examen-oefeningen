@@ -22,9 +22,11 @@ return [
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'app_user' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/']], [], [], []],
     'app_user_profile' => [['id'], ['_controller' => 'App\\Controller\\UserController::userProfile'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user']], [], [], []],
+    'app_make_appointment' => [[], ['_controller' => 'App\\Controller\\UserController::makeAppointment'], [], [['text', '/appointment']], [], [], []],
     'App\Controller\RegistrationController::register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'App\Controller\SecurityController::login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'App\Controller\SecurityController::logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
     'App\Controller\UserController::index' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/']], [], [], []],
     'App\Controller\UserController::userProfile' => [['id'], ['_controller' => 'App\\Controller\\UserController::userProfile'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/user']], [], [], []],
+    'App\Controller\UserController::makeAppointment' => [[], ['_controller' => 'App\\Controller\\UserController::makeAppointment'], [], [['text', '/appointment']], [], [], []],
 ];
