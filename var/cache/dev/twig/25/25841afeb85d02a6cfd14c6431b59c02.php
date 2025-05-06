@@ -123,7 +123,6 @@ class __TwigTemplate_169891ca335b7e82e09bda1cc1e31971 extends Template
 
     </div>
 
-
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -191,7 +190,6 @@ class __TwigTemplate_169891ca335b7e82e09bda1cc1e31971 extends Template
         </div>
 
     </div>
-
 
 {% endblock %}", "user/allappointments.html.twig", "C:\\xampp\\htdocs\\examen-oefeningen\\templates\\user\\allappointments.html.twig");
     }
