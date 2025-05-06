@@ -102,7 +102,7 @@ class __TwigTemplate_5da10a1b552af80d15523d84c1db0de8 extends Template
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 11, $this->source); })()), "user", [], "any", false, false, false, 11)) {
             // line 12
             echo "            <div class=\"mb-3\">
-               
+
             </div>
         ";
         }
@@ -178,7 +178,7 @@ class __TwigTemplate_5da10a1b552af80d15523d84c1db0de8 extends Template
 
         {% if app.user %}
             <div class=\"mb-3\">
-               
+
             </div>
         {% endif %}
 

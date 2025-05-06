@@ -199,8 +199,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 33, $this->source); })()), "user", [], "any", false, false, false, 33)) {
             // line 34
             echo "                            <li class=\"nav-item\">
-                                <a class=\"nav-link\" href=\"#\">";
+                                <a class=\"nav-link\" href=\"";
             // line 35
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_profile", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 35, $this->source); })()), "user", [], "any", false, false, false, 35), "id", [], "any", false, false, false, 35)]), "html", null, true);
+            echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 35, $this->source); })()), "user", [], "any", false, false, false, 35), "firstName", [], "any", false, false, false, 35), "html", null, true);
             echo "</a>
                             </li>
@@ -275,7 +277,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  248 => 56,  231 => 48,  225 => 45,  219 => 42,  216 => 41,  210 => 38,  204 => 35,  201 => 34,  199 => 33,  183 => 19,  173 => 18,  154 => 13,  144 => 14,  142 => 13,  139 => 12,  129 => 11,  118 => 8,  108 => 7,  89 => 5,  77 => 57,  74 => 56,  72 => 18,  67 => 15,  65 => 11,  62 => 10,  60 => 7,  55 => 5,  49 => 1,);
+        return array (  250 => 56,  233 => 48,  227 => 45,  221 => 42,  218 => 41,  212 => 38,  204 => 35,  201 => 34,  199 => 33,  183 => 19,  173 => 18,  154 => 13,  144 => 14,  142 => 13,  139 => 12,  129 => 11,  118 => 8,  108 => 7,  89 => 5,  77 => 57,  74 => 56,  72 => 18,  67 => 15,  65 => 11,  62 => 10,  60 => 7,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -314,7 +316,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                         </li>
                         {%if app.user %}
                             <li class=\"nav-item\">
-                                <a class=\"nav-link\" href=\"#\">{{ app.user.firstName }}</a>
+                                <a class=\"nav-link\" href=\"{{ path('app_user_profile', {id: app.user.id} ) }}\">{{ app.user.firstName }}</a>
                             </li>
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" href=\"{{ path('app_logout') }}\">logout lil bro</a>

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+   <div class="container">
+       <div class="row">
+           <div class="col-md-12">
+               <h1 class="page-header">
+                   hello {{ app.user.firstname}}  {{ app.user.lastname }}
+               </h1>
+           </div>
+           <div class="col-md-12">
+               <h1  class="fs-6 page-header">
+                   your appointments:
+               </h1>
+           </div>
+       </div>
+   </div>
+{% endblock %}

@@ -108,6 +108,21 @@ class __TwigTemplate_aecc1f698786b91fa1c0e7a7b54e7e2d extends Template
         echo "\">templates/user/index.html.twig</a></code></li>
     </ul>
 </div>
+
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-6\">
+                ";
+        // line 24
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SPECIALIST")) {
+            // line 25
+            echo "                    maak een afspraak lil bro
+                ";
+        }
+        // line 27
+        echo "            </div>
+        </div>
+    </div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -138,7 +153,7 @@ class __TwigTemplate_aecc1f698786b91fa1c0e7a7b54e7e2d extends Template
      */
     public function getDebugInfo()
     {
-        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  123 => 27,  119 => 25,  117 => 24,  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -162,7 +177,19 @@ class __TwigTemplate_aecc1f698786b91fa1c0e7a7b54e7e2d extends Template
         <li>Your template at <code><a href=\"{{ 'C:/xampp/htdocs/examen-oefeningen/templates/user/index.html.twig'|file_link(0) }}\">templates/user/index.html.twig</a></code></li>
     </ul>
 </div>
+
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-6\">
+                {% if is_granted(\"ROLE_SPECIALIST\") %}
+                    maak een afspraak lil bro
+                {% endif %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+
 ", "user/index.html.twig", "C:\\xampp\\htdocs\\examen-oefeningen\\templates\\user\\index.html.twig");
     }
 }
