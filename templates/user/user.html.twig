@@ -14,6 +14,24 @@
                <h1  class="fs-6 page-header">
                    your appointments:
                </h1>
+
+           </div>
+
+           <div class="col-md-12">
+               {% for appointments in appointments %}
+               <div class="card" style="width: 18rem;">
+
+                   <div class="card-body">
+                       <h5 class="card-title">{{ appointments.subject }}</h5>
+                       <p class="card-text">{{ appointments.problems }}.</p>
+                   </div>
+                   <ul class="list-group list-group-flush">
+                       <li class="list-group-item">Datum: {{ appointments.date }}</li>
+                       <li class="list-group-item">Tijd: {{ appointments.time|date('H:i')}}</li>
+                       <li class="list-group-item">Besproken: {{ appointments.discussed }}</li>
+                   </ul>
+               </div>
+               {% endfor %}
            </div>
        </div>
    </div>

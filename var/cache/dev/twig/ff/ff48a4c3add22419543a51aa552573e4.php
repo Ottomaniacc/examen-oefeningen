@@ -81,7 +81,50 @@ class __TwigTemplate_467606268cfaaaeca198d1a8f0b7ac72 extends Template
                <h1  class=\"fs-6 page-header\">
                    your appointments:
                </h1>
+
            </div>
+
+           <div class=\"col-md-12\">
+               ";
+        // line 21
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable($context["appointments"]);
+        foreach ($context['_seq'] as $context["_key"] => $context["appointments"]) {
+            // line 22
+            echo "               <div class=\"card\" style=\"width: 18rem;\">
+
+                   <div class=\"card-body\">
+                       <h5 class=\"card-title\">";
+            // line 25
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["appointments"], "subject", [], "any", false, false, false, 25), "html", null, true);
+            echo "</h5>
+                       <p class=\"card-text\">";
+            // line 26
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["appointments"], "problems", [], "any", false, false, false, 26), "html", null, true);
+            echo ".</p>
+                   </div>
+                   <ul class=\"list-group list-group-flush\">
+                       <li class=\"list-group-item\">Datum: ";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["appointments"], "date", [], "any", false, false, false, 29), "html", null, true);
+            echo "</li>
+                       <li class=\"list-group-item\">Tijd: ";
+            // line 30
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["appointments"], "time", [], "any", false, false, false, 30), "H:i"), "html", null, true);
+            echo "</li>
+                       <li class=\"list-group-item\">Besproken: ";
+            // line 31
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["appointments"], "discussed", [], "any", false, false, false, 31), "html", null, true);
+            echo "</li>
+                   </ul>
+               </div>
+               ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['appointments'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 35
+        echo "           </div>
        </div>
    </div>
 ";
@@ -114,7 +157,7 @@ class __TwigTemplate_467606268cfaaaeca198d1a8f0b7ac72 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  74 => 10,  68 => 6,  58 => 5,  35 => 1,);
+        return array (  127 => 35,  117 => 31,  113 => 30,  109 => 29,  103 => 26,  99 => 25,  94 => 22,  90 => 21,  74 => 10,  68 => 6,  58 => 5,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -135,6 +178,24 @@ class __TwigTemplate_467606268cfaaaeca198d1a8f0b7ac72 extends Template
                <h1  class=\"fs-6 page-header\">
                    your appointments:
                </h1>
+
+           </div>
+
+           <div class=\"col-md-12\">
+               {% for appointments in appointments %}
+               <div class=\"card\" style=\"width: 18rem;\">
+
+                   <div class=\"card-body\">
+                       <h5 class=\"card-title\">{{ appointments.subject }}</h5>
+                       <p class=\"card-text\">{{ appointments.problems }}.</p>
+                   </div>
+                   <ul class=\"list-group list-group-flush\">
+                       <li class=\"list-group-item\">Datum: {{ appointments.date }}</li>
+                       <li class=\"list-group-item\">Tijd: {{ appointments.time|date('H:i')}}</li>
+                       <li class=\"list-group-item\">Besproken: {{ appointments.discussed }}</li>
+                   </ul>
+               </div>
+               {% endfor %}
            </div>
        </div>
    </div>

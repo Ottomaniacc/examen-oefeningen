@@ -26,10 +26,11 @@ class UserController extends AbstractController
     {
 
         $user = $em->getRepository(\App\Entity\User::class)->find($id);
-
+        $appointments = $user->getAppointments();
         return $this->render('user/user.html.twig', [
             'controller_name' => 'UserController',
             'user' => $user,
+            'appointments' => $appointments,
         ]);
     }
 
