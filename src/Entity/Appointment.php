@@ -32,6 +32,9 @@ class Appointment
     #[ORM\ManyToOne(inversedBy: 'appointments')]
     private ?User $user = null;
 
+    #[ORM\ManyToOne(inversedBy: 'appointmentSpecialist')]
+    private ?User $specialist = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Appointment
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getSpecialist(): ?User
+    {
+        return $this->specialist;
+    }
+
+    public function setSpecialist(?User $specialist): static
+    {
+        $this->specialist = $specialist;
 
         return $this;
     }

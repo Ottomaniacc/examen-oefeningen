@@ -70,10 +70,10 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
     ";
         // line 18
         $this->displayBlock('nav', $context, $blocks);
-        // line 61
+        // line 66
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 62
+        // line 67
         echo "    </body>
 </html>
 ";
@@ -231,7 +231,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
         }
         // line 48
         echo "                        ";
-        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_SPECIALIST")) {
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
             // line 49
             echo "                            <li class=\"nav-item\">
                                 <a class=\"nav-link\" href=\"";
@@ -242,6 +242,18 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                         ";
         }
         // line 53
+        echo "                        ";
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            // line 54
+            echo "                            <li class=\"nav-item\">
+                                <a class=\"nav-link\" href=\"";
+            // line 55
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_make_post");
+            echo "\">Maak een nieuwsbrief</a>
+                            </li>
+                        ";
+        }
+        // line 58
         echo "
 
                     </ul>
@@ -258,7 +270,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
 
     }
 
-    // line 61
+    // line 66
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -289,7 +301,7 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  262 => 61,  245 => 53,  239 => 50,  236 => 49,  233 => 48,  227 => 45,  221 => 42,  218 => 41,  212 => 38,  204 => 35,  201 => 34,  199 => 33,  183 => 19,  173 => 18,  154 => 13,  144 => 14,  142 => 13,  139 => 12,  129 => 11,  118 => 8,  108 => 7,  89 => 5,  77 => 62,  74 => 61,  72 => 18,  67 => 15,  65 => 11,  62 => 10,  60 => 7,  55 => 5,  49 => 1,);
+        return array (  274 => 66,  257 => 58,  251 => 55,  248 => 54,  245 => 53,  239 => 50,  236 => 49,  233 => 48,  227 => 45,  221 => 42,  218 => 41,  212 => 38,  204 => 35,  201 => 34,  199 => 33,  183 => 19,  173 => 18,  154 => 13,  144 => 14,  142 => 13,  139 => 12,  129 => 11,  118 => 8,  108 => 7,  89 => 5,  77 => 67,  74 => 66,  72 => 18,  67 => 15,  65 => 11,  62 => 10,  60 => 7,  55 => 5,  49 => 1,);
     }
 
     public function getSourceContext()
@@ -341,9 +353,14 @@ class __TwigTemplate_99b461a093e10a12fb90a5c1703eb069 extends Template
                             <a class=\"nav-link\" href=\"{{ path('app_login') }}\">log in lil bro</a>
                         </li>
                         {% endif %}
-                        {% if is_granted(\"ROLE_SPECIALIST\") %}
+                        {% if is_granted(\"ROLE_ADMIN\") %}
                             <li class=\"nav-item\">
                                 <a class=\"nav-link\" href=\"{{ path('app_all_appointments') }}\">afspraken</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted(\"ROLE_ADMIN\") %}
+                            <li class=\"nav-item\">
+                                <a class=\"nav-link\" href=\"{{ path('app_make_post') }}\">Maak een nieuwsbrief</a>
                             </li>
                         {% endif %}
 

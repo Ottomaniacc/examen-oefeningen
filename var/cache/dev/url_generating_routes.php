@@ -25,6 +25,7 @@ return [
     'app_make_appointment' => [[], ['_controller' => 'App\\Controller\\UserController::makeAppointment'], [], [['text', '/appointment']], [], [], []],
     'app_all_appointments' => [[], ['_controller' => 'App\\Controller\\UserController::allAppointments'], [], [['text', '/all-appointments']], [], [], []],
     'app_appointment_delete' => [['id'], ['_controller' => 'App\\Controller\\UserController::deleteAppointment'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/appointment/delete']], [], [], []],
+    'app_make_post' => [[], ['_controller' => 'App\\Controller\\UserController::makePost'], [], [['text', '/Post']], [], [], []],
     'App\Controller\RegistrationController::register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'App\Controller\SecurityController::login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'App\Controller\SecurityController::logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
@@ -33,4 +34,5 @@ return [
     'App\Controller\UserController::makeAppointment' => [[], ['_controller' => 'App\\Controller\\UserController::makeAppointment'], [], [['text', '/appointment']], [], [], []],
     'App\Controller\UserController::allAppointments' => [[], ['_controller' => 'App\\Controller\\UserController::allAppointments'], [], [['text', '/all-appointments']], [], [], []],
     'App\Controller\UserController::deleteAppointment' => [['id'], ['_controller' => 'App\\Controller\\UserController::deleteAppointment'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/appointment/delete']], [], [], []],
+    'App\Controller\UserController::makePost' => [[], ['_controller' => 'App\\Controller\\UserController::makePost'], [], [['text', '/Post']], [], [], []],
 ];

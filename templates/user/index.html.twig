@@ -3,26 +3,37 @@
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/examen-oefeningen/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/examen-oefeningen/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
-</div>
+{% for posts in posts %}
+
+    <div class="col-md-4">
+
+        <div class="card" style="width: 18rem;">
+
+            <div class="card-body">
+                <h5 class="card-title">{{ posts.title }}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> {{ posts.description }}</li>
+                {% if is_granted("ROLE_ADMIN") %}
+                <li class="list-group-item text-success btn">aanpassen</li>
+                <li class="list-group-item btn text-danger"><a class="text-decoration-none text-danger" href="#">verwijder afspraak</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
+    {% endfor %}
 
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 {% if is_granted("ROLE_SPECIALIST") %}
                     <btn class="btn btn-primary" ><a class="text-white text-decoration-none" href="{{path('app_make_appointment')}}"> maak een afspraak lil bro </a></btn>
+                {% endif %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    <btn class="btn mt-5 btn-primary" ><a class="text-white text-decoration-none" href="{{path('app_make_appointment')}}"> maak een afspraak lil bro </a></btn>
                 {% endif %}
             </div>
         </div>

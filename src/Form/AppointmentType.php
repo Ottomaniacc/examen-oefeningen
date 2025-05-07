@@ -27,6 +27,10 @@ class AppointmentType extends AbstractType
                 'class' => User::class,
 'choice_label' => 'firstname',
             ])
+            ->add('specialist', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'firstname',
+            ])
             ->add('makeAppointment', SubmitType::class)
         ;
     }

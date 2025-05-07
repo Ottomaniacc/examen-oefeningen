@@ -52,9 +52,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Appointment::class)]
     private Collection $appointments;
 
+    #[ORM\OneToMany(mappedBy: 'specialist', targetEntity: Appointment::class)]
+    private Collection $appointmentSpecialist;
+
     public function __construct()
     {
         $this->appointments = new ArrayCollection();
+        $this->appointmentSpecialist = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -223,6 +227,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($appointment->getUser() === $this) {
                 $appointment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Appointment>
+     */
+    public function getAppointmentSpecialist(): Collection
+    {
+        return $this->appointmentSpecialist;
+    }
+
+    public function addAppointmentSpecialist(Appointment $appointmentSpecialist): static
+    {
+        if (!$this->appointmentSpecialist->contains($appointmentSpecialist)) {
+            $this->appointmentSpecialist->add($appointmentSpecialist);
+            $appointmentSpecialist->setSpecialist($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAppointmentSpecialist(Appointment $appointmentSpecialist): static
+    {
+        if ($this->appointmentSpecialist->removeElement($appointmentSpecialist)) {
+            // set the owning side to null (unless already changed)
+            if ($appointmentSpecialist->getSpecialist() === $this) {
+                $appointmentSpecialist->setSpecialist(null);
             }
         }
 

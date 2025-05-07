@@ -20,6 +20,7 @@ return [
         '/' => [[['_route' => 'app_user', '_controller' => 'App\\Controller\\UserController::index'], null, null, null, false, false, null]],
         '/appointment' => [[['_route' => 'app_make_appointment', '_controller' => 'App\\Controller\\UserController::makeAppointment'], null, null, null, false, false, null]],
         '/all-appointments' => [[['_route' => 'app_all_appointments', '_controller' => 'App\\Controller\\UserController::allAppointments'], null, null, null, false, false, null]],
+        '/Post' => [[['_route' => 'app_make_post', '_controller' => 'App\\Controller\\UserController::makePost'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

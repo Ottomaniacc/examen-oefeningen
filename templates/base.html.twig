@@ -45,9 +45,14 @@
                             <a class="nav-link" href="{{ path('app_login') }}">log in lil bro</a>
                         </li>
                         {% endif %}
-                        {% if is_granted("ROLE_SPECIALIST") %}
+                        {% if is_granted("ROLE_ADMIN") %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_all_appointments') }}">afspraken</a>
+                            </li>
+                        {% endif %}
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_make_post') }}">Maak een nieuwsbrief</a>
                             </li>
                         {% endif %}
 
